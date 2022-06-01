@@ -1,15 +1,11 @@
-import { useContext } from "react";
-import { WeatherContext } from "./contexts/weather/WeatherProvider";
+import { WeatherProvider } from "./contexts";
+import { CurrentWeather } from "./widgets";
 
 const App = () => {
-  const weatherInfo = useContext(WeatherContext);
-
-  console.log(weatherInfo);
-
   return (
-    <div className="App">
-      <h1>Hello Jarvis~~</h1>
-    </div>
+    <WeatherProvider>
+      <CurrentWeather />
+    </WeatherProvider>
   );
 };
 

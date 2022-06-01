@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import WeatherProvider from "./contexts/weather/WeatherProvider";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 const root = ReactDOM.createRoot(
@@ -9,9 +8,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <WeatherProvider>
-      <App />
-    </WeatherProvider>
+    <App />
   </React.StrictMode>
 );
 
