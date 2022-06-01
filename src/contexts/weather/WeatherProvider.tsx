@@ -18,7 +18,7 @@ const WeatherProvider: React.FC<Props> = ({ children }) => {
       const {
         name,
         coord: { lat, lon },
-        main: { temp, humidity, pressure, feels_like, temp_min, temp_max },
+        main: { temp, humidity, feels_like, temp_min, temp_max },
         sys: { sunset, sunrise },
         weather: [{ main: weatherState }],
         wind: { speed, deg },
@@ -32,7 +32,6 @@ const WeatherProvider: React.FC<Props> = ({ children }) => {
         name,
         temp,
         humidity,
-        pressure,
         weatherState,
         feels_like,
         temp_min,

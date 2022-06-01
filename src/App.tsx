@@ -1,10 +1,10 @@
 import { WeatherProvider } from "./contexts";
-import { CurrentWeather } from "./widgets";
+import { WeatherWidget } from "./widgets";
 
 const App = () => {
   return (
     <WeatherProvider>
-      <CurrentWeather />
+      <WeatherWidget />
     </WeatherProvider>
   );
 };

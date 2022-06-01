@@ -1,3 +1,3 @@
-import CurrentWeather from "./weather/CurrentWeather";
+import WeatherWidget from "./weather";
 
-export { CurrentWeather };
+export { WeatherWidget };

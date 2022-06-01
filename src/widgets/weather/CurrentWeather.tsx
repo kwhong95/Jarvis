@@ -1,27 +1,20 @@
-import { useContext, useState } from "react";
-import Modal from "../../components/common/Modal";
+import { useContext } from "react";
 import CurrentWeatherIcon from "../../components/weather/CurrentWeatherIcon";
 import { WeatherContext } from "../../contexts";
-import TempInfo from "./TempInfo";
 
-const CurrentWeather = () => {
+interface Props {
+  onClick?: () => void;
+}
+
+const CurrentWeather: React.FC<Props> = ({ onClick }) => {
   const { name, temp, weatherState } = useContext<any>(WeatherContext);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const handleOpen = () => setIsOpen(true);
-  const handleClose = () => setIsOpen(false);
 
   return (
-    <>
-      <div className="container" onClick={handleOpen}>
-        {name} &nbsp;/
-        <CurrentWeatherIcon weatherState={weatherState} />
-        <span>{temp}&deg;</span>
-      </div>
-      <Modal isOpen={isOpen} onClose={handleClose}>
-        <TempInfo />
-      </Modal>
-    </>
+    <div className="container" onClick={onClick}>
+      {name} &nbsp;/
+      <CurrentWeatherIcon weatherState={weatherState} />
+      <span>{temp}&deg;</span>
+    </div>
   );
 };
 
