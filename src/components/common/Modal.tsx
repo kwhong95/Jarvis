@@ -26,7 +26,7 @@ const Dim = styled.div`
 `;
 
 const Container = styled.div`
-  max-width: 456px;
+  max-width: 1050px;
   position: relative;
   width: 100%;
 `;

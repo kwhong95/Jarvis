@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import styled from "@emotion/styled";
 
+import { WeatherGraph } from "components";
 import { useMeasure } from "hooks";
 import Pager from "./Pager";
 
@@ -63,10 +64,15 @@ const Slider = styled(motion.div)`
   background: #6cabdd;
 `;
 
+const TabPannel = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
 const tabs = ["날씨", "습도", "바람"];
 
-export const Tabs = () => {
-  const [value, setValue] = useState(1);
+const Tabs = () => {
+  const [value, setValue] = useState(0);
   const childRefs = useRef(new Map());
   const tabListRef = useRef<HTMLDivElement>(null!);
   const [slider, setSlider] = useState({ left: 0, right: 0, hasValue: false });
@@ -94,6 +100,8 @@ export const Tabs = () => {
       });
     }
   }, [value, bounds]);
+
+  console.log(value);
 
   return (
     <div>
@@ -123,15 +131,14 @@ export const Tabs = () => {
         </TabList>
       </TabContainer>
       <Pager value={value}>
-        {tabs.map((tab) => (
-          <div
-            key={tab}
-            style={{ width: "100%", height: "100%", padding: "1rem" }}
-          >
-            {tab}
-          </div>
-        ))}
+        <TabPannel>
+          <WeatherGraph />
+        </TabPannel>
+        <TabPannel>습도</TabPannel>
+        <TabPannel>바람</TabPannel>
       </Pager>
     </div>
   );
 };
+
+export default Tabs;

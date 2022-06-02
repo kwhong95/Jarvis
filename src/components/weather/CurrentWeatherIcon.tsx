@@ -26,6 +26,9 @@ interface Props {
     | "Squall"
     | "Tornado"
     | "Drizzle";
+  x?: number;
+  y?: number;
+  fontSize?: number;
 }
 
 const CurrentWeatherIcon: React.FC<Props> = ({ weatherState, ...props }) => {

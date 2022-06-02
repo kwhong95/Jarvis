@@ -1,14 +1,12 @@
 import styled from "@emotion/styled";
 
-import { CurrentWeatherIcon, Modal } from "components";
-import { Tabs } from "components/common/Tabs";
+import { CurrentWeatherIcon, Modal, Tabs } from "components";
 import { WeatherContext } from "contexts";
 import { useContext } from "react";
 import ExtraInfo from "./ExtraInfo";
 import TempInfo from "./TempInfo";
 
 const Container = styled.div`
-  width: 100%;
   background-color: #1b2230;
   border-radius: 12px;
   box-shadow: 0 3px 8px 0 rgb(0 0 0 / 10%);
