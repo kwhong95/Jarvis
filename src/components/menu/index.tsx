@@ -40,7 +40,6 @@ interface Props {
 
 const Menu: React.FC<Props> = ({ wideMenu, setWideMenu }) => {
   const toggleClick = () => setWideMenu((prev) => !prev);
-  console.log(wideMenu);
 
   return (
     <Container>

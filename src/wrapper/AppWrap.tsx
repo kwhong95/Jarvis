@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { Helmet } from "react-helmet";
 
 import { Menu } from "components";
+import Header from "components/header";
 
 const Container = styled.div<{ wideMenu: boolean }>`
   width: 100%;
@@ -11,6 +12,10 @@ const Container = styled.div<{ wideMenu: boolean }>`
   display: grid;
   grid-template-columns: ${({ wideMenu }) =>
     wideMenu ? "1fr 5fr" : "1fr 15fr"};
+`;
+
+const Inner = styled.div`
+  padding: 1rem;
 `;
 
 const AppWrap = (Component: React.FC, title: string) =>
@@ -23,7 +28,10 @@ const AppWrap = (Component: React.FC, title: string) =>
           <title>{title}</title>
         </Helmet>
         <Menu wideMenu={wideMenu} setWideMenu={setWideMenu} />
-        <Component />
+        <Inner>
+          <Header />
+          <Component />
+        </Inner>
       </Container>
     );
   };

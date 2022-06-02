@@ -2,6 +2,25 @@ import { useContext } from "react";
 import { WiHumidity, WiStrongWind, WiSunrise, WiSunset } from "react-icons/wi";
 
 import { WeatherContext } from "contexts";
+import styled from "@emotion/styled";
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+
+  .extra-info-item {
+    display: flex;
+    gap: 0.5rem;
+    text-align: center;
+    align-items: center;
+
+    p {
+      font-size: 0.75rem;
+      width: 100%;
+    }
+  }
+`;
 
 const WindDirectionText = ({ deg = 0 }) => {
   switch (true) {
@@ -31,9 +50,9 @@ const ExtraInfo = () => {
     useContext<any>(WeatherContext);
 
   return (
-    <div>
+    <Container>
       <div className="extra-info-item">
-        <WiSunrise />
+        <WiSunrise style={{ fontSize: "50px", color: "#ff7500" }} />
         <p>
           {new Date(sunrise * 1000).toLocaleString("en-US", {
             hour: "numeric",
@@ -45,7 +64,7 @@ const ExtraInfo = () => {
         </p>
       </div>
       <div className="extra-info-item">
-        <WiSunset />
+        <WiSunset style={{ fontSize: "50px", color: "#ff7500" }} />
         <p>
           {new Date(sunset * 1000).toLocaleString("en-US", {
             hour: "numeric",
@@ -57,7 +76,7 @@ const ExtraInfo = () => {
         </p>
       </div>
       <div className="extra-info-item">
-        <WiHumidity />
+        <WiHumidity style={{ fontSize: "50px", color: "#0095ff" }} />
         <p>
           {`${humidity}%`}
           <br />
@@ -65,14 +84,14 @@ const ExtraInfo = () => {
         </p>
       </div>
       <div className="extra-info-item">
-        <WiStrongWind />
+        <WiStrongWind style={{ fontSize: "50px", color: "#2bc7ad" }} />
         <p>
           {`${speed}m/s`} ({WindDirectionText(deg)})
           <br />
           바람
         </p>
       </div>
-    </div>
+    </Container>
   );
 };
 
