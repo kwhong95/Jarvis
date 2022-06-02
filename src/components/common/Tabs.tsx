@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import { WeatherGraph, HumidityGraph } from "components";
 import { useMeasure } from "hooks";
 import Pager from "./Pager";
+import WindGraph from "components/weather/WindGraph";
 
 const TabContainer = styled.div`
   width: 100%;
@@ -101,8 +102,6 @@ const Tabs = () => {
     }
   }, [value, bounds]);
 
-  console.log(value);
-
   return (
     <div>
       <TabContainer ref={ref}>
@@ -137,7 +136,9 @@ const Tabs = () => {
         <TabPannel>
           <HumidityGraph />
         </TabPannel>
-        <TabPannel>바람</TabPannel>
+        <TabPannel>
+          <WindGraph />
+        </TabPannel>
       </Pager>
     </div>
   );
