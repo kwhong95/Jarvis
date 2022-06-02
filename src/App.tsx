@@ -1,7 +1,8 @@
+import { Route, Routes } from "react-router-dom";
 import { ThemeProvider, Global } from "@emotion/react";
 
-import { WeatherWidget } from "./widgets";
 import { AppWrap } from "wrapper";
+import { Dashboard } from "views";
 import useTheme from "styles/useTheme";
 import { default as THEME } from "styles/theme";
 import GlobalStyle from "styles/GlobalStyles";
@@ -12,7 +13,9 @@ const App = () => {
   return (
     <ThemeProvider theme={THEME["dark"]}>
       <Global styles={GlobalStyle(THEME["dark"])} />
-      <WeatherWidget />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+      </Routes>
     </ThemeProvider>
   );
 };
