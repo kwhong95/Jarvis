@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import styled from "@emotion/styled";
 
-import { WeatherGraph } from "components";
+import { WeatherGraph, HumidityGraph } from "components";
 import { useMeasure } from "hooks";
 import Pager from "./Pager";
 
@@ -134,7 +134,9 @@ const Tabs = () => {
         <TabPannel>
           <WeatherGraph />
         </TabPannel>
-        <TabPannel>습도</TabPannel>
+        <TabPannel>
+          <HumidityGraph />
+        </TabPannel>
         <TabPannel>바람</TabPannel>
       </Pager>
     </div>

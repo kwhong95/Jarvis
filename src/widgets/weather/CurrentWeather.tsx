@@ -11,6 +11,7 @@ const Container = styled.div`
   display: flex;
   gap: 0.5rem;
   font-size: 1.25rem;
+  cursor: pointer;
 
   svg {
     width: 25px;

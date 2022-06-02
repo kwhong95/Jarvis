@@ -1,16 +1,11 @@
 import { useContext } from "react";
 import { LineChart, XAxis, Line, LabelList } from "recharts";
-// Core modules imports are ame as usual
-import { Navigation } from "swiper";
-// Direct React component imports
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
 
 import { WeatherContext } from "contexts";
 import CurrentWeatherIcon from "./CurrentWeatherIcon";
-
-const formatXAxis = (data: number) => `${new Date(data * 1000).getHours()}시`;
+import { formatXAxis } from "./utils";
+import CustomizedLabel from "./CustomizedLabel";
+import Swiperer from "components/common/Swiperer";
 
 const CustomizedDot = ({
   payload,
@@ -27,20 +22,6 @@ const CustomizedDot = ({
     y={cy! - 5}
     fontSize={25}
   />
-);
-
-const CustomizedLabel = ({
-  x,
-  y,
-  value,
-}: {
-  x?: number;
-  y?: number;
-  value?: number;
-}) => (
-  <text x={x} y={y} dy={-4} fontSize={12} textAnchor="middle" fill="white">
-    {value}˚
-  </text>
 );
 
 const LineGraph = ({ num }: { num: number }) => {
@@ -82,27 +63,17 @@ const LineGraph = ({ num }: { num: number }) => {
         dot={<CustomizedDot />}
         isAnimationActive={false}
       >
-        <LabelList content={<CustomizedLabel />} />
+        <LabelList content={<CustomizedLabel unit="˚" />} />
       </Line>
     </LineChart>
   );
 };
 
 const WeatherGraph = () => {
-  const slides = [];
-
-  for (let i = 0; i < 2; i++) {
-    slides.push(
-      <SwiperSlide key={i}>
-        <LineGraph num={i} />
-      </SwiperSlide>
-    );
-  }
-
   return (
-    <Swiper navigation={true} modules={[Navigation]}>
-      {slides}
-    </Swiper>
+    <Swiperer>
+      <LineGraph num={0} />
+    </Swiperer>
   );
 };
 export default WeatherGraph;
