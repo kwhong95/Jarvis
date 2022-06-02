@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import SearchInput from "components/common/SearchInput";
 import { WeatherWidget } from "widgets";
 
 const Container = styled.header`
@@ -11,7 +12,7 @@ const Container = styled.header`
 const Header = () => {
   return (
     <Container>
-      <div />
+      <SearchInput />
       <WeatherWidget />
     </Container>
   );
