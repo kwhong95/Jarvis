@@ -1,12 +1,20 @@
-import { WeatherProvider } from "./contexts";
+import { ThemeProvider, Global } from "@emotion/react";
+
 import { WeatherWidget } from "./widgets";
+import { AppWrap } from "wrapper";
+import useTheme from "styles/useTheme";
+import { default as THEME } from "styles/theme";
+import GlobalStyle from "styles/GlobalStyles";
 
 const App = () => {
+  // const [theme, onToggle] = useTheme();
+
   return (
-    <WeatherProvider>
+    <ThemeProvider theme={THEME["dark"]}>
+      <Global styles={GlobalStyle(THEME["dark"])} />
       <WeatherWidget />
-    </WeatherProvider>
+    </ThemeProvider>
   );
 };
 
-export default App;
+export default AppWrap(App, "Jarvis");

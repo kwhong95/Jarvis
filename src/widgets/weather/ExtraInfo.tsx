@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { WiHumidity, WiStrongWind, WiSunrise, WiSunset } from "react-icons/wi";
 
-import { WeatherContext } from "../../contexts";
+import { WeatherContext } from "contexts";
 
 const WindDirectionText = ({ deg = 0 }) => {
   switch (true) {

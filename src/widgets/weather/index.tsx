@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Modal from "../../components/common/Modal";
+import { WeatherProvider } from "contexts";
 import CurrentWeather from "./CurrentWeather";
 import ExtraInfo from "./ExtraInfo";
 
@@ -12,14 +13,14 @@ const WeatherWidget = () => {
   const handleClose = () => setIsOpen(false);
 
   return (
-    <>
+    <WeatherProvider>
       <CurrentWeather onClick={handleOpen} />
       <Modal isOpen={isOpen} onClose={handleClose}>
         <CurrentWeather />
         <TempInfo />
         <ExtraInfo />
       </Modal>
-    </>
+    </WeatherProvider>
   );
 };
 

@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { WeatherContext } from "../../contexts";
+
+import { WeatherContext } from "contexts";
 
 const TempInfo = () => {
   const { feels_like, temp_min, temp_max } = useContext<any>(WeatherContext);

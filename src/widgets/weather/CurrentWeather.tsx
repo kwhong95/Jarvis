@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import CurrentWeatherIcon from "../../components/weather/CurrentWeatherIcon";
-import { WeatherContext } from "../../contexts";
+
+import { CurrentWeatherIcon } from "components";
+import { WeatherContext } from "contexts";
 
 interface Props {
   onClick?: () => void;
