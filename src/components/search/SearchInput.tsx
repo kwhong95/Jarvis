@@ -1,5 +1,5 @@
 import { useState, KeyboardEvent, useEffect, useCallback } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import styled from "@emotion/styled";
 import { FaSearch } from "react-icons/fa";
 
@@ -38,6 +38,7 @@ const Container = styled.div`
 `;
 
 const SearchInput = () => {
+  const navigate = useNavigate();
   const [searchText, setSearchText] = useState<string>("");
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -47,13 +48,15 @@ const SearchInput = () => {
 
   const onChangeInput = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
+      navigate("search/all");
       setSearchText(e.target.value);
     },
-    []
+    [navigate]
   );
 
   const onKeyUp = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && e.currentTarget.value.trim().length > 0) {
+      navigate("search/all");
       setSearchParams({ q: e.currentTarget.value });
     }
   };

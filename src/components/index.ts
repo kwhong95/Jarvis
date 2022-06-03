@@ -17,6 +17,10 @@ import CurrentWeatherIcon from "../components/weather/CurrentWeatherIcon";
 import WeatherGraph from "./weather/WeatherGraph";
 import HumidityGraph from "./weather/HumidityGraph";
 
+/* Search UI */
+import SearchInput from "./search/SearchInput";
+import SearchNavBar from "./search/SearchNavBar";
+
 export {
   Modal,
   CurrentWeatherIcon,
@@ -27,4 +31,6 @@ export {
   WeatherGraph,
   HumidityGraph,
   Swiperer,
+  SearchInput,
+  SearchNavBar,
 };

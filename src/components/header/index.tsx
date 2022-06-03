@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import SearchInput from "components/common/SearchInput";
+import { SearchInput } from "components";
 import { ClockWidget, WeatherWidget } from "widgets";
 
 const Container = styled.header`
