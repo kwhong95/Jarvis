@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-import ReactPaginate from "react-paginate";
 import { useQuery } from "react-query";
 import styled from "@emotion/styled";
 
+import { Pagination } from "components";
 import NoResult from "./NoResult";
 import SearchTermRequired from "./SearchTermRequired";
 
@@ -72,36 +72,6 @@ const Container = styled.div`
   }
 `;
 
-const Paginate = styled(ReactPaginate)`
-  position: relative;
-  top: 2rem;
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-
-  li {
-    text-align: center;
-    width: 20px;
-    height: 20px;
-    padding: 0.3rem;
-    border: 0.3px solid ${({ theme }) => theme.colors.gray};
-    color: ${({ theme }) => theme.colors.skyBlue};
-    font-weight: 600;
-
-    a {
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  .selected {
-    background-color: ${({ theme }) => theme.colors.skyBlue};
-    color: white;
-  }
-`;
-
 const NewsResult = () => {
   const location = useLocation();
   const search = new URLSearchParams(location.search).get("q");
@@ -111,7 +81,7 @@ const NewsResult = () => {
   const [itemOffset, setItemOffset] = useState<number>(0);
 
   const { data, isLoading } = useQuery(
-    ["allResult", search],
+    ["newsResult", search],
     () =>
       axios
         .get(
@@ -175,16 +145,7 @@ const NewsResult = () => {
           <NoResult />
         )}
       </Container>
-      <Paginate
-        breakLabel="..."
-        nextLabel=">>"
-        previousLabel="<<"
-        pageRangeDisplayed={10}
-        activeLinkClassName="active"
-        renderOnZeroPageCount={null as any}
-        onPageChange={handlePageClick}
-        pageCount={pageCount}
-      />
+      <Pagination onPageChange={handlePageClick} pageCount={pageCount} />
     </>
   );
 };

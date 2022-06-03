@@ -11,60 +11,61 @@ import SearchTermRequired from "./SearchTermRequired";
 const API_KEY = process.env.REACT_APP_X_RAPIDAPI_KEY!;
 
 interface ResultItem {
-  link: string;
-  title: string;
-  description: string;
+  image: {
+    src: string;
+  };
+  link: {
+    href: string;
+    title: string;
+  };
 }
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  vertical-align: middle;
+  align-items: center;
+  flex-wrap: wrap;
   margin: auto;
-  width: 700px;
+  width: 900px;
 
   .item-wrapper {
-    margin-top: 2rem;
+    padding: 2rem;
+    text-decoration: none;
 
-    .link-wrapper {
-      color: ${({ theme }) => theme.colors.gray};
-      text-decoration: none;
-
-      .link-text {
-        font-size: 0.875rem;
+    img {
+      :hover {
+        box-shadow: ${({ theme }) => theme.boxShadow.navy};
       }
+    }
 
-      .link-title {
-        font-size: 1.5rem;
-        color: ${({ theme }) => theme.colors.skyBlue};
+    p {
+      width: 50%;
+      overflow-wrap: break-word;
+      font-weight: 0.75rem;
+      margin-top: 1rem;
+      color: ${({ theme }) => theme.colors.skyBlue};
 
-        :hover {
-          text-decoration-line: underline;
-        }
-      }
-
-      .link-description {
-        font-size: 0.5rem;
+      :hover {
+        text-decoration-line: underline;
       }
     }
   }
 `;
 
-const AllResult = () => {
+const ImageResult = () => {
   const location = useLocation();
   const search = new URLSearchParams(location.search).get("q");
-  const itemsPerPage: number = 5;
+  const itemsPerPage: number = 4;
   const [currentItems, setCurrentItems] = useState<any>([]);
   const [pageCount, setPageCount] = useState<number>(0);
   const [itemOffset, setItemOffset] = useState<number>(0);
 
   const { data, isLoading } = useQuery(
-    ["allResult", search],
+    ["imageResult", search],
     () =>
       axios
         .get(
-          `https://google-search3.p.rapidapi.com/api/v1/search/q=${search}&num=50`,
+          `https://google-search3.p.rapidapi.com/api/v1/image/q=${search}&num=100`,
           {
             headers: {
               "X-RapidAPI-Host": "google-search3.p.rapidapi.com",
@@ -82,15 +83,15 @@ const AllResult = () => {
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
-    setCurrentItems(data?.results?.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil((data?.results?.length ?? 0) / itemsPerPage));
-  }, [itemOffset, data?.results]);
+    setCurrentItems(data?.image_results?.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil((data?.image_results?.length ?? 0) / itemsPerPage));
+  }, [itemOffset, data?.image_results]);
 
   const handlePageClick = useCallback(
     (e: any) => {
-      setItemOffset((e.selected * itemsPerPage) % data?.results?.length);
+      setItemOffset((e.selected * itemsPerPage) % data?.image_results?.length);
     },
-    [data?.results]
+    [data?.image_results]
   );
 
   if (!search) return <SearchTermRequired />;
@@ -99,23 +100,22 @@ const AllResult = () => {
   return (
     <>
       <Container>
-        {data?.results?.length > 0 ? (
+        {data?.image_results?.length > 0 ? (
           currentItems?.map(
-            ({ link, title, description }: ResultItem, idx: number) => (
-              <div key={idx} className="item-wrapper">
-                <a
-                  className="link-wrapper"
-                  href={link}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <p className="link-text">
-                    {link.length > 40 ? link.substring(0, 40) : link}
-                  </p>
-                  <p className="link-title">{title}</p>
-                  <p className="link-description">{description}</p>
-                </a>
-              </div>
+            (
+              { image: { src }, link: { href, title } }: ResultItem,
+              idx: number
+            ) => (
+              <a
+                key={idx}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className="item-wrapper"
+              >
+                <img src={src} alt={title} loading="lazy" className="image" />
+                <p>{title}</p>
+              </a>
             )
           )
         ) : (
@@ -127,4 +127,4 @@ const AllResult = () => {
   );
 };
 
-export default AllResult;
+export default ImageResult;

@@ -3,7 +3,7 @@ import { ThemeProvider, Global } from "@emotion/react";
 
 import { AppWrap } from "wrapper";
 import { Dashboard, Search } from "views";
-import { AllResult, NewsResult } from "components";
+import { AllResult, ImageResult, NewsResult } from "components";
 
 import { default as THEME } from "styles/theme";
 import useTheme from "styles/useTheme";
@@ -20,6 +20,7 @@ const App = () => {
         <Route path="/search/*" element={<Search />}>
           <Route path="all" element={<AllResult />} />
           <Route path="news" element={<NewsResult />} />
+          <Route path="image" element={<ImageResult />} />
         </Route>
       </Routes>
     </ThemeProvider>

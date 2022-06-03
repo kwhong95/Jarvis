@@ -2,6 +2,7 @@
 import Modal from "./common/Modal";
 import Tabs from "./common/Tabs";
 import Swiperer from "./common/Swiperer";
+import Pagination from "./common/Pagination";
 
 /* Menu */
 import Menu from "./menu";
@@ -22,6 +23,7 @@ import SearchInput from "./search/SearchInput";
 import SearchNavBar from "./search/SearchNavBar";
 import AllResult from "./search/AllResult";
 import NewsResult from "./search/NewsResult";
+import ImageResult from "./search/ImageResult";
 
 export {
   Modal,
@@ -33,8 +35,10 @@ export {
   WeatherGraph,
   HumidityGraph,
   Swiperer,
+  Pagination,
   SearchInput,
   SearchNavBar,
   AllResult,
   NewsResult,
+  ImageResult,
 };
