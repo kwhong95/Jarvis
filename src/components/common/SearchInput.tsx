@@ -64,7 +64,7 @@ const SearchInput = () => {
       <input
         value={searchText}
         type="text"
-        placeholder="검색어를 입력해 주세요."
+        placeholder="General Search..."
         onChange={onChangeInput}
         onKeyUp={onKeyUp}
       />
