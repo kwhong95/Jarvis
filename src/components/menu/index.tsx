@@ -9,6 +9,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100vh;
 
   padding: 1.5rem 1rem;
   z-index: 10;
@@ -30,6 +31,10 @@ const Container = styled.div`
       color: #7f8490;
       font-weight: 600;
     }
+  }
+
+  .settings {
+    margin-bottom: 3rem;
   }
 `;
 

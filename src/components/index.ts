@@ -20,6 +20,7 @@ import HumidityGraph from "./weather/HumidityGraph";
 /* Search UI */
 import SearchInput from "./search/SearchInput";
 import SearchNavBar from "./search/SearchNavBar";
+import AllResult from "./search/AllResult";
 
 export {
   Modal,
@@ -33,4 +34,5 @@ export {
   Swiperer,
   SearchInput,
   SearchNavBar,
+  AllResult,
 };

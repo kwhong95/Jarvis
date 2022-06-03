@@ -3,8 +3,10 @@ import { ThemeProvider, Global } from "@emotion/react";
 
 import { AppWrap } from "wrapper";
 import { Dashboard, Search } from "views";
-import useTheme from "styles/useTheme";
+import { AllResult } from "components";
+
 import { default as THEME } from "styles/theme";
+import useTheme from "styles/useTheme";
 import GlobalStyle from "styles/GlobalStyles";
 
 const App = () => {
@@ -15,7 +17,9 @@ const App = () => {
       <Global styles={GlobalStyle(THEME["dark"])} />
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/search/:id" element={<Search />} />
+        <Route path="/search/*" element={<Search />}>
+          <Route path="all" element={<AllResult />} />
+        </Route>
       </Routes>
     </ThemeProvider>
   );

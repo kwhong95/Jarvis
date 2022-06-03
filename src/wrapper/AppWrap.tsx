@@ -8,6 +8,8 @@ import Header from "components/header";
 const Container = styled.div<{ wideMenu: boolean }>`
   width: 100%;
   min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
 
   display: grid;
   grid-template-columns: ${({ wideMenu }) =>
