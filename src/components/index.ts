@@ -21,6 +21,7 @@ import HumidityGraph from "./weather/HumidityGraph";
 import SearchInput from "./search/SearchInput";
 import SearchNavBar from "./search/SearchNavBar";
 import AllResult from "./search/AllResult";
+import NewsResult from "./search/NewsResult";
 
 export {
   Modal,
@@ -35,4 +36,5 @@ export {
   SearchInput,
   SearchNavBar,
   AllResult,
+  NewsResult,
 };
