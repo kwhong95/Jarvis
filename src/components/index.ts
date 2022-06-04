@@ -20,6 +20,7 @@ import Header from "./header";
 import LogoutIcon from "./auth/LogoutIcon";
 import ErrorText from "./auth/ErrorText";
 import AuthInput from "./auth/AuthInput";
+import LogoutConfirmModal from "./auth/LogoutConfirmModal";
 
 /* Weather UI  */
 import CurrentWeatherIcon from "../components/weather/CurrentWeatherIcon";
@@ -54,5 +55,6 @@ export {
   ImageResult,
   LogoutIcon,
   AuthInput,
+  LogoutConfirmModal,
   ErrorText,
 };

@@ -4,6 +4,7 @@ import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 import { Settings, LogoutIcon, SettingsModal } from "components";
 import MenuList from "./MenuList";
+import LogoutConfirmModal from "components/auth/LogoutConfirmModal";
 
 const Container = styled.div`
   display: flex;
@@ -48,10 +49,14 @@ interface Props {
 
 const Menu: React.FC<Props> = ({ wideMenu, setWideMenu }) => {
   const [openSettings, setOpenSetting] = useState<boolean>(false);
+  const [openLogoutModal, toggleLogoutModal] = useState<boolean>(false);
   const toggleClick = () => setWideMenu((prev) => !prev);
 
   const handleOpen = () => setOpenSetting(true);
   const handleClose = () => setOpenSetting(false);
+
+  const handleLogoutModalOpen = () => toggleLogoutModal(true);
+  const handleLogoutModalClose = () => toggleLogoutModal(false);
 
   return (
     <>
@@ -66,10 +71,14 @@ const Menu: React.FC<Props> = ({ wideMenu, setWideMenu }) => {
         </nav>
         <div className="user-icons">
           <Settings wideMenu={wideMenu} onClick={handleOpen} />
-          <LogoutIcon wideMenu={wideMenu} />
+          <LogoutIcon wideMenu={wideMenu} onClick={handleLogoutModalOpen} />
         </div>
       </Container>
       <SettingsModal isOpen={openSettings} onClose={handleClose} />
+      <LogoutConfirmModal
+        isOpen={openLogoutModal}
+        onClose={handleLogoutModalClose}
+      />
     </>
   );
 };
