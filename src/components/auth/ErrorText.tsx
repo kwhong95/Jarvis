@@ -1,3 +1,9 @@
+import styled from "@emotion/styled";
+
+const Container = styled.small`
+  color: ${({ theme }) => theme.colors.red};
+`;
+
 interface Props {
   error: string;
 }
@@ -5,7 +11,7 @@ interface Props {
 const ErrorText: React.FC<Props> = ({ error }) => {
   if (error === "") return null;
 
-  return <small>{error}</small>;
+  return <Container>{error}</Container>;
 };
 
 export default ErrorText;

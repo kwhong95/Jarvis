@@ -1,7 +1,10 @@
-import { Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { ThemeProvider, Global } from "@emotion/react";
-import { Dashboard, Search, Register } from "views";
+
+import { Dashboard, Search, Register, Login } from "views";
 import { AllResult, ImageResult, NewsResult } from "components";
+import { auth, logging } from "configs";
 
 import { default as THEME } from "styles/theme";
 // import useTheme from "styles/useTheme";
@@ -9,6 +12,14 @@ import GlobalStyle from "styles/GlobalStyles";
 
 const App = () => {
   // const [theme, onToggle] = useTheme();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!auth.currentUser) {
+      logging.warn("No user detected, redirecting");
+      return navigate("/login");
+    }
+  }, [navigate]);
 
   return (
     <ThemeProvider theme={THEME["dark"] as any}>
@@ -16,6 +27,7 @@ const App = () => {
       <Routes>
         {/* Auth */}
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
 
         <Route path="/" element={<Dashboard />} />
 
