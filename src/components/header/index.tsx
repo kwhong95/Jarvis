@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { SearchInput } from "components";
-import { ClockWidget, WeatherWidget } from "widgets";
+import { ClockWidget, UserWidget, WeatherWidget } from "widgets";
 
 const Container = styled.header`
   height: 60px;
@@ -21,6 +21,7 @@ const Header = () => {
       <div className="widgets">
         <WeatherWidget />
         <ClockWidget />
+        <UserWidget />
       </div>
     </Container>
   );

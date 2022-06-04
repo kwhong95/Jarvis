@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { ThemeProvider, Global } from "@emotion/react";
 
-import { Dashboard, Search, Register, Login } from "views";
+import { Dashboard, Search, Register, Login, ChangePassword } from "views";
 import { AllResult, ImageResult, NewsResult } from "components";
 import { auth, logging } from "configs";
 
@@ -28,6 +28,7 @@ const App = () => {
         {/* Auth */}
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/change" element={<ChangePassword />} />
 
         <Route path="/" element={<Dashboard />} />
 

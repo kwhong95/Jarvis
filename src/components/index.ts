@@ -4,12 +4,14 @@ import Tabs from "./common/Tabs";
 import Swiperer from "./common/Swiperer";
 import Pagination from "./common/Pagination";
 import Button from "./common/Button";
+import Dropdown from "./common/Dropdown";
 
 /* Menu */
 import Menu from "./menu";
 
 /* Settings */
 import Settings from "./settings";
+import SettingsModal from "./settings/SettingsModal";
 
 /* Header */
 import Header from "./header";
@@ -37,8 +39,10 @@ export {
   Menu,
   Button,
   Settings,
+  SettingsModal,
   Header,
   Tabs,
+  Dropdown,
   WeatherGraph,
   HumidityGraph,
   Swiperer,

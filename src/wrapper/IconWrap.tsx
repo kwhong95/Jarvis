@@ -26,10 +26,15 @@ const Container = styled.div<{ wideMenu: boolean }>`
 interface Props {
   children: React.ReactNode;
   wideMenu: boolean;
+  onClick?: () => void;
 }
 
-const IconWrap: React.FC<Props> = ({ children, wideMenu }) => {
-  return <Container wideMenu={wideMenu}>{children}</Container>;
+const IconWrap: React.FC<Props> = ({ children, wideMenu, onClick }) => {
+  return (
+    <Container onClick={onClick} wideMenu={wideMenu}>
+      {children}
+    </Container>
+  );
 };
 
 export default IconWrap;

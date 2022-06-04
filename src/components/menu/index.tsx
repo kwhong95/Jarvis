@@ -1,8 +1,8 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import styled from "@emotion/styled";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
-import { Settings, LogoutIcon } from "components";
+import { Settings, LogoutIcon, SettingsModal } from "components";
 import MenuList from "./MenuList";
 
 const Container = styled.div`
@@ -47,23 +47,30 @@ interface Props {
 }
 
 const Menu: React.FC<Props> = ({ wideMenu, setWideMenu }) => {
+  const [openSettings, setOpenSetting] = useState<boolean>(false);
   const toggleClick = () => setWideMenu((prev) => !prev);
 
+  const handleOpen = () => setOpenSetting(true);
+  const handleClose = () => setOpenSetting(false);
+
   return (
-    <Container>
-      <nav className="navigation">
-        <div className="logo">Jarvis</div>
-        <div className="menu-collapse" onClick={toggleClick}>
-          <p>Menu</p>
-          {wideMenu ? <IoIosArrowBack /> : <IoIosArrowForward />}
+    <>
+      <Container>
+        <nav className="navigation">
+          <div className="logo">Jarvis</div>
+          <div className="menu-collapse" onClick={toggleClick}>
+            <p>Menu</p>
+            {wideMenu ? <IoIosArrowBack /> : <IoIosArrowForward />}
+          </div>
+          <MenuList wideMenu={wideMenu} />
+        </nav>
+        <div className="user-icons">
+          <Settings wideMenu={wideMenu} onClick={handleOpen} />
+          <LogoutIcon wideMenu={wideMenu} />
         </div>
-        <MenuList wideMenu={wideMenu} />
-      </nav>
-      <div className="user-icons">
-        <Settings wideMenu={wideMenu} />
-        <LogoutIcon wideMenu={wideMenu} />
-      </div>
-    </Container>
+      </Container>
+      <SettingsModal isOpen={openSettings} onClose={handleClose} />
+    </>
   );
 };
 
