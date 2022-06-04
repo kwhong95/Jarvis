@@ -13,6 +13,9 @@ import Settings from "./settings";
 /* Header */
 import Header from "./header";
 
+/* Auth UI */
+import LogoutIcon from "./auth/LogoutIcon";
+
 /* Weather UI  */
 import CurrentWeatherIcon from "../components/weather/CurrentWeatherIcon";
 import WeatherGraph from "./weather/WeatherGraph";
@@ -41,4 +44,5 @@ export {
   AllResult,
   NewsResult,
   ImageResult,
+  LogoutIcon,
 };

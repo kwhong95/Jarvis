@@ -7,6 +7,7 @@ const Container = styled.div`
   background-color: #252e43;
   border-radius: 12px;
   font-weight: 600;
+  font-size: 1.25rem;
 `;
 
 const ClockWidget = () => {
@@ -24,7 +25,7 @@ const ClockWidget = () => {
 
   return (
     <Container>
-      <div>{time.format("MM/DD-HH:mm")}</div>
+      <div>{time.format("MM/DD HH:mm")}</div>
     </Container>
   );
 };

@@ -6,11 +6,11 @@ import { Dashboard, Search } from "views";
 import { AllResult, ImageResult, NewsResult } from "components";
 
 import { default as THEME } from "styles/theme";
-import useTheme from "styles/useTheme";
+// import useTheme from "styles/useTheme";
 import GlobalStyle from "styles/GlobalStyles";
 
 const App = () => {
-  const [theme, onToggle] = useTheme();
+  // const [theme, onToggle] = useTheme();
 
   return (
     <ThemeProvider theme={THEME["dark"] as any}>

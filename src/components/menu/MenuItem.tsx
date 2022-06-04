@@ -11,6 +11,7 @@ const Container = styled.li<{ wideMenu: boolean }>`
   margin: 0.5rem;
   padding: 1rem;
   border-radius: 12px;
+  transition: 0.3s;
 
   .icon {
     display: flex;

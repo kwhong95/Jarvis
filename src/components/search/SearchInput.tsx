@@ -61,6 +61,12 @@ const SearchInput = () => {
     }
   };
 
+  useEffect(() => {
+    if (searchText === "") {
+      navigate("/");
+    }
+  }, [searchText, navigate]);
+
   return (
     <Container>
       <FaSearch className="icon" />

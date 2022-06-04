@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import styled from "@emotion/styled";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
-import { Settings } from "components";
+import { Settings, LogoutIcon } from "components";
 import MenuList from "./MenuList";
 
 const Container = styled.div`
@@ -33,7 +33,10 @@ const Container = styled.div`
     }
   }
 
-  .settings {
+  .user-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     margin-bottom: 3rem;
   }
 `;
@@ -56,8 +59,9 @@ const Menu: React.FC<Props> = ({ wideMenu, setWideMenu }) => {
         </div>
         <MenuList wideMenu={wideMenu} />
       </nav>
-      <div className="settings">
+      <div className="user-icons">
         <Settings wideMenu={wideMenu} />
+        <LogoutIcon wideMenu={wideMenu} />
       </div>
     </Container>
   );
