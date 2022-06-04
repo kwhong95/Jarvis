@@ -3,6 +3,7 @@ import Modal from "./common/Modal";
 import Tabs from "./common/Tabs";
 import Swiperer from "./common/Swiperer";
 import Pagination from "./common/Pagination";
+import Button from "./common/Button";
 
 /* Menu */
 import Menu from "./menu";
@@ -15,6 +16,8 @@ import Header from "./header";
 
 /* Auth UI */
 import LogoutIcon from "./auth/LogoutIcon";
+import ErrorText from "./auth/ErrorText";
+import AuthInput from "./auth/AuthInput";
 
 /* Weather UI  */
 import CurrentWeatherIcon from "../components/weather/CurrentWeatherIcon";
@@ -32,6 +35,7 @@ export {
   Modal,
   CurrentWeatherIcon,
   Menu,
+  Button,
   Settings,
   Header,
   Tabs,
@@ -45,4 +49,6 @@ export {
   NewsResult,
   ImageResult,
   LogoutIcon,
+  AuthInput,
+  ErrorText,
 };

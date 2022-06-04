@@ -1,4 +1,5 @@
-import AppWrap from "./AppWrap";
+import UserWrap from "./UserWrap";
 import IconWrap from "./IconWrap";
+import AuthWrap from "./AuthWrap";
 
-export { AppWrap, IconWrap };
+export { UserWrap, IconWrap, AuthWrap };

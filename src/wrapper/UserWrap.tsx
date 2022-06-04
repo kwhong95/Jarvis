@@ -20,7 +20,7 @@ const Inner = styled.div`
   padding: 1rem;
 `;
 
-const AppWrap = (Component: React.FC, title: string) =>
+const UserWrap = (Component: React.FC, title: string) =>
   function Hoc() {
     const [wideMenu, setWideMenu] = useState<boolean>(false);
 
@@ -38,4 +38,4 @@ const AppWrap = (Component: React.FC, title: string) =>
     );
   };
 
-export default AppWrap;
+export default UserWrap;

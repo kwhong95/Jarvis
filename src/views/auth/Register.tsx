@@ -1,6 +1,28 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import styled from "@emotion/styled";
+
 import { logging, auth } from "configs";
-import { useNavigate } from "react-router-dom";
+import { AuthWrap } from "wrapper";
+import { AuthInput, Button, ErrorText } from "components";
+
+const Container = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 80%;
+  margin-top: 2rem;
+
+  small {
+    text-align: center;
+
+    a {
+      margin: 0.3rem;
+      color: ${({ theme }) => theme.colors.darkGold};
+      text-decoration: none;
+    }
+  }
+`;
 
 const Register = () => {
   const [registering, setRegistering] = useState<boolean>(false);
@@ -12,7 +34,10 @@ const Register = () => {
   const navigate = useNavigate();
 
   const signUpWithEmailAndPassword = () => {
-    if (error !== "") setError("Please make sure your passwords match.");
+    if (password !== confirm) {
+      setError("Please make sure your passwords match.");
+      return;
+    }
 
     if (error !== "") setError("");
 
@@ -38,7 +63,50 @@ const Register = () => {
       });
   };
 
-  return <div>Resister</div>;
+  return (
+    <Container>
+      <AuthInput
+        label="Email"
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Email Address"
+        onChange={(event) => setEmail(event.target.value)}
+        value={email}
+      />
+      <AuthInput
+        autoComplete="new-password"
+        label="Password"
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Enter Password"
+        onChange={(event) => setPassword(event.target.value)}
+        value={password}
+      />
+      <AuthInput
+        autoComplete="new-password"
+        label="Confirm Password"
+        type="password"
+        name="confirm"
+        id="confirm"
+        placeholder="Confirm Password"
+        onChange={(event) => setConfirm(event.target.value)}
+        value={confirm}
+      />
+      <Button
+        label="Sign Up"
+        disabled={registering}
+        onClick={() => signUpWithEmailAndPassword()}
+      />
+      <small>
+        <p>
+          Already have an account? <Link to="/login">Login.</Link>
+        </p>
+      </small>
+      <ErrorText error={error} />
+    </Container>
+  );
 };
 
-export default Register;
+export default AuthWrap(Register, "Register");

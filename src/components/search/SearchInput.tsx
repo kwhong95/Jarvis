@@ -61,11 +61,11 @@ const SearchInput = () => {
     }
   };
 
-  useEffect(() => {
-    if (searchText === "") {
-      navigate("/");
-    }
-  }, [searchText, navigate]);
+  // useEffect(() => {
+  //   if (searchText === "") {
+  //     navigate("/");
+  //   }
+  // }, [searchText, navigate]);
 
   return (
     <Container>
