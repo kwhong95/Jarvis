@@ -9,6 +9,7 @@ import {
   Login,
   ChangePassword,
   ForgotPassword,
+  ResetPassword,
 } from "views";
 import { AllResult, ImageResult, NewsResult } from "components";
 import { auth, logging } from "configs";
@@ -44,6 +45,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/change" element={<ChangePassword />} />
         <Route path="/forgot" element={<ForgotPassword />} />
+        <Route path="/reset" element={<ResetPassword />} />
 
         <Route path="/" element={<Dashboard />} />
 

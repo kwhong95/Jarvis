@@ -51,7 +51,7 @@ const ForgotPassword = () => {
   return (
     <Container>
       {sent ? (
-        <p>A link has been sent to your email with instruction</p>
+        <p>A link has been sent to your email with instructions.</p>
       ) : (
         <>
           <p>Please enter your email.</p>
