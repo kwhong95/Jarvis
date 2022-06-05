@@ -1,8 +1,15 @@
-import { useEffect } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import { ThemeProvider, Global } from "@emotion/react";
 
-import { Dashboard, Search, Register, Login, ChangePassword } from "views";
+import {
+  Dashboard,
+  Search,
+  Register,
+  Login,
+  ChangePassword,
+  ForgotPassword,
+} from "views";
 import { AllResult, ImageResult, NewsResult } from "components";
 import { auth, logging } from "configs";
 
@@ -12,14 +19,21 @@ import GlobalStyle from "styles/GlobalStyles";
 
 const App = () => {
   // const [theme, onToggle] = useTheme();
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    if (!auth.currentUser) {
-      logging.warn("No user detected, redirecting");
-      return navigate("/login");
-    }
-  }, [navigate]);
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        logging.info("User detected.");
+      } else {
+        logging.info("No user detected");
+      }
+
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) return <p>loading...</p>;
 
   return (
     <ThemeProvider theme={THEME["dark"] as any}>
@@ -29,6 +43,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/change" element={<ChangePassword />} />
+        <Route path="/forgot" element={<ForgotPassword />} />
 
         <Route path="/" element={<Dashboard />} />
 

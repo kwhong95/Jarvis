@@ -6,7 +6,7 @@ import styled from "@emotion/styled";
 
 const Container = styled.div`
   padding: 1rem;
-  background-color: #252e43;
+  background-color: ${({ theme }) => theme.colors.navy_2};
   border-radius: 12px;
   display: flex;
   gap: 0.5rem;

@@ -13,7 +13,7 @@ const Container = styled.div`
 const Card = styled.div`
   width: 400px;
   height: 450px;
-  background-color: ${({ theme }) => theme.colors.gray};
+  background-color: ${({ theme }) => theme.colors.navy_2};
   box-shadow: ${({ theme }) => theme.boxShadow.navy};
   border-radius: 4px;
   display: flex;

@@ -3,6 +3,7 @@ export interface Theme {
     skyBlue: "#6CABDD";
     blue: "#1C2C5B";
     navy: "#1B2230";
+    navy_2: "#252e43";
     glod: "#FFC659";
     darkGold: "#D4A12A";
     red: "#EC3325";
@@ -30,6 +31,7 @@ export const dark: Theme = {
     skyBlue: "#6CABDD",
     blue: "#1C2C5B",
     navy: "#1B2230",
+    navy_2: "#252e43",
     glod: "#FFC659",
     darkGold: "#D4A12A",
     red: "#EC3325",

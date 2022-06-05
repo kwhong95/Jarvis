@@ -4,7 +4,7 @@ import { auth, logging } from "configs";
 import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
-  background-color: ${({ theme }) => theme.colors.navy};
+  background-color: ${({ theme }) => theme.colors.navy_2};
   border-radius: 4px;
   text-align: center;
   padding: 1rem;

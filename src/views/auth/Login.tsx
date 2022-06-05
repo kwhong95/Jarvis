@@ -9,12 +9,18 @@ import { AuthInput, Button, ErrorText } from "components";
 const Container = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
   width: 80%;
   margin-top: 2rem;
 
   small {
     text-align: center;
+
+    .forgot {
+      a {
+        color: ${({ theme }) => theme.colors.red};
+      }
+    }
 
     a {
       margin: 0.3rem;
@@ -79,6 +85,9 @@ const Login = () => {
       <small>
         <p>
           Don't have an account? <Link to="/register">Register here.</Link>
+        </p>
+        <p className="forgot">
+          <Link to="/forgot">Forget your password?</Link>
         </p>
       </small>
       <ErrorText error={error} />
