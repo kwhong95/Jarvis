@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
+import { FaGooglePlusG } from "react-icons/fa";
 
 import { logging, auth } from "configs";
 import { AuthWrap } from "wrapper";
 import { AuthInput, Button, ErrorText } from "components";
+import { SignInWithSocialMedia } from "./modules";
+import { Providers } from "configs/firebase";
 
 const Container = styled.form`
   display: flex;
@@ -56,6 +59,25 @@ const Login = () => {
       });
   };
 
+  const signInWithSocialMedia = (
+    provider: firebase.default.auth.AuthProvider
+  ) => {
+    if (error !== "") setError("");
+
+    setAuthenticating(true);
+
+    SignInWithSocialMedia(provider)
+      .then((result) => {
+        logging.info(result);
+        navigate("/");
+      })
+      .catch((error) => {
+        logging.error(error);
+        setAuthenticating(false);
+        setError(error.message);
+      });
+  };
+
   return (
     <Container>
       <AuthInput
@@ -91,6 +113,13 @@ const Login = () => {
         </p>
       </small>
       <ErrorText error={error} />
+      <hr className="divider" />
+      <Button
+        label="Sign in with Google"
+        disabled={authenticating}
+        onClick={() => signInWithSocialMedia(Providers.google)}
+        icon={<FaGooglePlusG />}
+      />
     </Container>
   );
 };
