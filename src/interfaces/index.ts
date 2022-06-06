@@ -1,3 +1,4 @@
 import type { Task, Member } from "./tasks";
+import type { Team } from "./teams";
 
-export { Task, Member };
+export type { Task, Member, Team };

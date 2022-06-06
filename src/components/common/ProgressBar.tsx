@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import ProgressBar from "@ramonak/react-progress-bar";
+import ProgressBarComp from "@ramonak/react-progress-bar";
 
 const Container = styled.div`
   display: flex;
@@ -16,10 +16,10 @@ interface Props {
   color?: string;
 }
 
-const TaskProgressBar: React.FC<Props> = ({ value, color = "#0083ff" }) => {
+const ProgressBar: React.FC<Props> = ({ value, color = "#0083ff" }) => {
   return (
     <Container>
-      <ProgressBar
+      <ProgressBarComp
         completed={value}
         width="120px"
         height="8px"
@@ -32,4 +32,4 @@ const TaskProgressBar: React.FC<Props> = ({ value, color = "#0083ff" }) => {
   );
 };
 
-export default TaskProgressBar;
+export default ProgressBar;

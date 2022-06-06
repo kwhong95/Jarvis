@@ -6,7 +6,7 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { getTasks } from "services";
 import { GRAPHCMS_API } from "configs/api";
 import { Task } from "interfaces";
-import { MembersIcon, TaskProgressBar } from "components";
+import { MembersIcon, ProgressBar } from "components";
 
 const Container = styled.tbody`
   color: ${({ theme }) => theme.colors.gray};
@@ -51,7 +51,7 @@ const TableList = () => {
             <MembersIcon members={task.members} />
           </td>
           <td className="task-process">
-            <TaskProgressBar value={89} />
+            <ProgressBar value={89} />
           </td>
           <td className="task-action">
             <p>Details</p>

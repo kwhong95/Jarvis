@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import { TasksWidget } from "widgets";
+import { TasksWidget, TeamsWidget } from "widgets";
 import { UserWrap } from "wrapper";
 
 const Container = styled.div`
@@ -18,7 +18,9 @@ const Dashboard = () => {
         <TasksWidget />
       </div>
       <div className="schedule">Today's Schedule</div>
-      <div className="teams">Teams</div>
+      <div className="teams">
+        <TeamsWidget />
+      </div>
       <div className="issue-feed">Issue Feed</div>
     </Container>
   );

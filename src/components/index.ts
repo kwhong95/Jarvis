@@ -6,7 +6,7 @@ import Pagination from "./common/Pagination";
 import Button from "./common/Button";
 import Dropdown from "./common/Dropdown";
 import SpeechBubble from "./common/SpeechBubble";
-import TaskProgressBar from "./common/ProgressBar";
+import ProgressBar from "./common/ProgressBar";
 
 /* Menu */
 import Menu from "./menu";
@@ -17,6 +17,7 @@ import SettingsModal from "./settings/SettingsModal";
 
 /* Header */
 import Header from "./header";
+import DashboardHeader from "./header/dashboard";
 
 /* Auth UI */
 import LogoutIcon from "./auth/LogoutIcon";
@@ -40,6 +41,9 @@ import ImageResult from "./search/ImageResult";
 import MembersIcon from "./tasks/MembersIcon";
 import TaskCard from "./tasks/Card";
 
+/* Teams UI */
+import TeamCard from "./teams/TeamCard";
+
 export {
   Modal,
   CurrentWeatherIcon,
@@ -49,6 +53,7 @@ export {
   Settings,
   SettingsModal,
   Header,
+  DashboardHeader,
   Tabs,
   Dropdown,
   WeatherGraph,
@@ -66,5 +71,6 @@ export {
   ErrorText,
   MembersIcon,
   TaskCard,
-  TaskProgressBar,
+  ProgressBar,
+  TeamCard,
 };

@@ -83,7 +83,9 @@ const MembersIcon: React.FC<Props> = ({ members }) => {
           )}
         </>
       ))}
-      <p className="total-member-num">{`+${members.length - 2}`}</p>
+      {members.length > 2 && (
+        <p className="total-member-num">{`+${members.length - 2}`}</p>
+      )}
     </Container>
   );
 };

@@ -9,6 +9,7 @@ const Container = styled.div`
   grid-template-columns: 2fr 1fr;
   align-items: center;
   padding: 0.5rem 1rem;
+  box-shadow: ${({ theme }) => theme.boxShadow.normal};
 
   p {
     font-size: 1.25rem;
