@@ -37,6 +37,7 @@ import ImageResult from "./search/ImageResult";
 
 /* Tasks UI */
 import MembersIcon from "./tasks/MembersIcon";
+import TaskCard from "./tasks/Card";
 
 export {
   Modal,
@@ -63,4 +64,5 @@ export {
   LogoutConfirmModal,
   ErrorText,
   MembersIcon,
+  TaskCard,
 };

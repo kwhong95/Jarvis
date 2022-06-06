@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import { TasksTable } from "widgets";
+import { TasksWidget } from "widgets";
 import { UserWrap } from "wrapper";
 
 const Container = styled.div`
@@ -15,7 +15,7 @@ const Dashboard = () => {
   return (
     <Container>
       <div className="task-summary">
-        <TasksTable />
+        <TasksWidget />
       </div>
       <div className="schedule">Today's Schedule</div>
       <div className="teams">Teams</div>

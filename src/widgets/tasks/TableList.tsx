@@ -20,7 +20,7 @@ const Container = styled.tbody`
 `;
 
 const TableList = () => {
-  const { data, isLoading } = useQuery<Array<Task>>("getTasks", async () => {
+  const { data } = useQuery<Array<Task>>("getTasks", async () => {
     const result = await request(GRAPHCMS_API!, getTasks);
 
     return result.tasks;
