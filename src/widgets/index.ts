@@ -2,4 +2,6 @@ import WeatherWidget from "./weather";
 import ClockWidget from "./clock";
 import UserWidget from "./user";
 
-export { WeatherWidget, ClockWidget, UserWidget };
+import TasksTable from "./tasks/Table";
+
+export { WeatherWidget, ClockWidget, UserWidget, TasksTable };

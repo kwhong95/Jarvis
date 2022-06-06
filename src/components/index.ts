@@ -5,6 +5,7 @@ import Swiperer from "./common/Swiperer";
 import Pagination from "./common/Pagination";
 import Button from "./common/Button";
 import Dropdown from "./common/Dropdown";
+import SpeechBubble from "./common/SpeechBubble";
 
 /* Menu */
 import Menu from "./menu";
@@ -34,11 +35,15 @@ import AllResult from "./search/AllResult";
 import NewsResult from "./search/NewsResult";
 import ImageResult from "./search/ImageResult";
 
+/* Tasks UI */
+import MembersIcon from "./tasks/MembersIcon";
+
 export {
   Modal,
   CurrentWeatherIcon,
   Menu,
   Button,
+  SpeechBubble,
   Settings,
   SettingsModal,
   Header,
@@ -57,4 +62,5 @@ export {
   AuthInput,
   LogoutConfirmModal,
   ErrorText,
+  MembersIcon,
 };

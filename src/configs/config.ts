@@ -8,6 +8,9 @@ const config = {
     appId: process.env.REACT_APP_FIREBASE_APP_ID,
     measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
   },
+  graphcms: {
+    endpoint: process.env.REACT_APP_GRAPHCMS_ENDPOINT,
+  },
 };
 
 export default config;
