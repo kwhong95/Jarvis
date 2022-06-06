@@ -6,6 +6,7 @@ import Pagination from "./common/Pagination";
 import Button from "./common/Button";
 import Dropdown from "./common/Dropdown";
 import SpeechBubble from "./common/SpeechBubble";
+import TaskProgressBar from "./common/ProgressBar";
 
 /* Menu */
 import Menu from "./menu";
@@ -65,4 +66,5 @@ export {
   ErrorText,
   MembersIcon,
   TaskCard,
+  TaskProgressBar,
 };

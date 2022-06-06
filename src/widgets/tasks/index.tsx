@@ -14,11 +14,11 @@ const Container = styled.div`
   }
 
   .detail-btn {
-    color: ${({ theme }) => theme.colors.skyBlue};
+    color: #0083ff;
     margin-right: 2rem;
 
     :hover {
-      border-bottom: 1px solid ${({ theme }) => theme.colors.skyBlue};
+      border-bottom: 1px solid #0083ff;
     }
   }
 `;
