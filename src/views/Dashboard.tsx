@@ -1,12 +1,17 @@
 import styled from "@emotion/styled";
 
-import { TasksWidget, TeamsWidget } from "widgets";
+import {
+  DailyWorkWidget,
+  IssueFeedWidget,
+  TasksWidget,
+  TeamsWidget,
+} from "widgets";
 import { UserWrap } from "wrapper";
 
 const Container = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 3fr 2fr;
+  grid-template-rows: 4fr 3fr;
   height: calc(100vh - 80px);
   padding: 1rem;
 `;
@@ -17,11 +22,15 @@ const Dashboard = () => {
       <div className="task-summary">
         <TasksWidget />
       </div>
-      <div className="schedule">Today's Schedule</div>
+      <div className="daily-work">
+        <DailyWorkWidget />
+      </div>
       <div className="teams">
         <TeamsWidget />
       </div>
-      <div className="issue-feed">Issue Feed</div>
+      <div className="issue-feed">
+        <IssueFeedWidget />
+      </div>
     </Container>
   );
 };

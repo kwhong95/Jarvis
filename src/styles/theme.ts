@@ -1,13 +1,14 @@
 export interface Theme {
   colors: {
     skyBlue: "#6CABDD";
-    blue: "#1C2C5B";
+    blue: "#0083ff";
     navy: "#1B2230";
     navy_2: "#252e43";
     glod: "#FFC659";
     darkGold: "#D4A12A";
     red: "#EC3325";
     gray: "#7f8490";
+    green: "#22d29b";
   };
   boxShadow: {
     normal: "0 3px 8px 0 rgb(0 0 0 / 10%)";
@@ -29,13 +30,14 @@ interface ThemeGroup {
 export const dark: Theme = {
   colors: {
     skyBlue: "#6CABDD",
-    blue: "#1C2C5B",
+    blue: "#0083ff",
     navy: "#1B2230",
     navy_2: "#252e43",
     glod: "#FFC659",
     darkGold: "#D4A12A",
     red: "#EC3325",
     gray: "#7f8490",
+    green: "#22d29b",
   },
   boxShadow: {
     normal: "0 3px 8px 0 rgb(0 0 0 / 10%)",

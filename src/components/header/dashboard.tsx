@@ -6,13 +6,17 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  h2 {
+    font-size: 1.25rem;
+  }
+
   .detail-link {
-    color: #0083ff;
+    color: ${({ theme }) => theme.colors.blue};
     margin-right: 2rem;
     text-decoration: none;
 
     :hover {
-      border-bottom: 1px solid #0083ff;
+      border-bottom: 1px solid ${({ theme }) => theme.colors.blue};
     }
   }
 `;

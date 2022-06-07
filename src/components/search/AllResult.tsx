@@ -1,4 +1,3 @@
-import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { useQuery } from "react-query";
@@ -7,6 +6,7 @@ import styled from "@emotion/styled";
 import { Pagination } from "components";
 import NoResult from "./NoResult";
 import SearchTermRequired from "./SearchTermRequired";
+import { usePagination } from "hooks";
 
 const API_KEY = process.env.REACT_APP_X_RAPIDAPI_KEY!;
 
@@ -54,10 +54,6 @@ const Container = styled.div`
 const AllResult = () => {
   const location = useLocation();
   const search = new URLSearchParams(location.search).get("q");
-  const itemsPerPage: number = 5;
-  const [currentItems, setCurrentItems] = useState<any>([]);
-  const [pageCount, setPageCount] = useState<number>(0);
-  const [itemOffset, setItemOffset] = useState<number>(0);
 
   const { data, isLoading } = useQuery(
     ["allResult", search],
@@ -80,18 +76,23 @@ const AllResult = () => {
     }
   );
 
-  useEffect(() => {
-    const endOffset = itemOffset + itemsPerPage;
-    setCurrentItems(data?.results?.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil((data?.results?.length ?? 0) / itemsPerPage));
-  }, [itemOffset, data?.results]);
-
-  const handlePageClick = useCallback(
-    (e: any) => {
-      setItemOffset((e.selected * itemsPerPage) % data?.results?.length);
-    },
-    [data?.results]
+  const { currentItems, pageCount, handlePageClick } = usePagination(
+    5,
+    data?.results
   );
+
+  // useEffect(() => {
+  //   const endOffset = itemOffset + itemsPerPage;
+  //   setCurrentItems(data?.results?.slice(itemOffset, endOffset));
+  //   setPageCount(Math.ceil((data?.results?.length ?? 0) / itemsPerPage));
+  // }, [itemOffset, data?.results]);
+
+  // const handlePageClick = useCallback(
+  //   (e: any) => {
+  //     setItemOffset((e.selected * itemsPerPage) % data?.results?.length);
+  //   },
+  //   [data?.results]
+  // );
 
   if (!search) return <SearchTermRequired />;
   if (isLoading) return <p>Loading...</p>;

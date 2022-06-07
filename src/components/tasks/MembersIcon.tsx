@@ -47,7 +47,7 @@ const MembersIcon: React.FC<Props> = ({ members }) => {
 
   const onLeave = () => setShowBallon(false);
 
-  const BubbleLabel = members.map((member) => member.name).toString();
+  const BubbleLabel = members.map((member) => member.name).join();
 
   return (
     <Container onMouseEnter={onEnter} onMouseLeave={onLeave}>

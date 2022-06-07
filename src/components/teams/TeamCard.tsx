@@ -11,6 +11,7 @@ const Container = styled.div`
   gap: 1rem;
   border-radius: 4px;
   box-shadow: ${({ theme }) => theme.boxShadow.normal};
+  height: 100%;
 
   img {
     border-top-left-radius: 4px;
@@ -20,13 +21,18 @@ const Container = styled.div`
   .content {
     padding: 0 1rem;
     padding-bottom: 1rem;
+
+    h3 {
+      font-size: 1rem;
+    }
   }
 
   .tag {
     border-radius: 4px;
     background-color: ${({ theme }) => theme.colors.navy};
     width: 60px;
-    margin-top: 1rem;
+    height: 15px;
+    margin-top: 0.5rem;
     box-shadow: ${({ theme }) => theme.boxShadow.navy};
 
     padding: 0.5rem;
@@ -61,7 +67,7 @@ const TeamCard: React.FC<Props> = ({
   return (
     <Container>
       <div className="image">
-        <img width={280} height={200} src={url} alt={name} />
+        <img width={280} height={150} src={url} alt={name} />
       </div>
       <div className="content">
         <h3>{name}</h3>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import styled from "@emotion/styled";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 
@@ -81,16 +82,9 @@ const UserWidget = () => {
     <>
       <Container onClick={handleDropdown}>
         <div className="image">
-          <img
-            src="/icons/apple-touch-icon-72x72.png"
-            alt="User"
-            width={30}
-            height={30}
-          />
+          {/* <img src={data.photo.url} alt="User" width={30} height={30} /> */}
         </div>
-        <div className="username">
-          <p>Kyle Hong</p>
-        </div>
+        <div className="username">{/* <p>{data.name}</p> */}</div>
         <div className="icon-wrap">
           {isOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
         </div>

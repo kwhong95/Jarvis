@@ -4,14 +4,12 @@ import { ThemeProvider, Global } from "@emotion/react";
 
 import {
   Dashboard,
-  Search,
   Register,
   Login,
   ChangePassword,
   ForgotPassword,
   ResetPassword,
 } from "views";
-import { AllResult, ImageResult, NewsResult } from "components";
 import { auth, logging } from "configs";
 
 import { default as THEME } from "styles/theme";
@@ -48,13 +46,6 @@ const App = () => {
         <Route path="/reset" element={<ResetPassword />} />
 
         <Route path="/" element={<Dashboard />} />
-
-        {/* Search */}
-        <Route path="/search/*" element={<Search />}>
-          <Route path="all" element={<AllResult />} />
-          <Route path="news" element={<NewsResult />} />
-          <Route path="image" element={<ImageResult />} />
-        </Route>
       </Routes>
     </ThemeProvider>
   );

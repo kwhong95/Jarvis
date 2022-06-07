@@ -43,23 +43,25 @@ const TableList = () => {
   });
 
   return (
-    <Container>
-      {data?.map((task, idx) => (
-        <tr className="task-item" key={idx}>
-          <td className="task-name">{task.title}</td>
-          <td className="task-members">
-            <MembersIcon members={task.members} />
-          </td>
-          <td className="task-process">
-            <ProgressBar value={89} />
-          </td>
-          <td className="task-action">
-            <p>Details</p>
-            <AiOutlineInfoCircle />
-          </td>
-        </tr>
-      ))}
-    </Container>
+    <>
+      <Container>
+        {data?.map((task: Task, idx: number) => (
+          <tr className="task-item" key={idx}>
+            <td className="task-name">{task.title}</td>
+            <td className="task-members">
+              <MembersIcon members={task.members} />
+            </td>
+            <td className="task-process">
+              <ProgressBar value={89} />
+            </td>
+            <td className="task-action">
+              <p>Details</p>
+              <AiOutlineInfoCircle />
+            </td>
+          </tr>
+        ))}
+      </Container>
+    </>
   );
 };
 

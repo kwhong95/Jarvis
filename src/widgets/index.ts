@@ -2,7 +2,18 @@ import WeatherWidget from "./weather";
 import ClockWidget from "./clock";
 import UserWidget from "./user";
 
+/* Dashboard Widget */
 import TasksWidget from "./tasks";
 import TeamsWidget from "./teams";
+import DailyWorkWidget from "./daily";
+import IssueFeedWidget from "./issue";
 
-export { WeatherWidget, ClockWidget, UserWidget, TasksWidget, TeamsWidget };
+export {
+  WeatherWidget,
+  ClockWidget,
+  UserWidget,
+  TasksWidget,
+  TeamsWidget,
+  DailyWorkWidget,
+  IssueFeedWidget,
+};

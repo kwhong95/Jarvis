@@ -28,7 +28,7 @@ const TeamsWidget = () => {
     return result.teams;
   });
 
-  const colors = ["#fcb620", "#0083ff"];
+  const colors = ["#fcb620", "#0083ff", "#22d29b"];
 
   return (
     <Container>

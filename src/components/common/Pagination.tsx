@@ -16,7 +16,7 @@ const Container = styled(ReactPaginate)`
     height: 20px;
     padding: 0.3rem;
     border: 0.3px solid ${({ theme }) => theme.colors.gray};
-    color: ${({ theme }) => theme.colors.skyBlue};
+    color: ${({ theme }) => theme.colors.blue};
     font-weight: 600;
 
     a {
@@ -25,7 +25,7 @@ const Container = styled(ReactPaginate)`
     }
   }
   .selected {
-    background-color: ${({ theme }) => theme.colors.skyBlue};
+    background-color: ${({ theme }) => theme.colors.blue};
     color: white;
   }
 `;
