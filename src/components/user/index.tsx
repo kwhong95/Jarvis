@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 
 import { Dropdown } from "components";
+import { auth } from "configs";
 
 const Container = styled.div`
   display: flex;
@@ -71,8 +72,9 @@ const Wrapper = styled.div`
   }
 `;
 
-const UserWidget = () => {
+const UserAccount = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { displayName, photoURL }: any = auth.currentUser;
 
   const navigate = useNavigate();
 
@@ -82,9 +84,9 @@ const UserWidget = () => {
     <>
       <Container onClick={handleDropdown}>
         <div className="image">
-          {/* <img src={data.photo.url} alt="User" width={30} height={30} /> */}
+          <img src={photoURL} alt="User" width={30} height={30} />
         </div>
-        <div className="username">{/* <p>{data.name}</p> */}</div>
+        <div className="username">{displayName}</div>
         <div className="icon-wrap">
           {isOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
         </div>
@@ -106,4 +108,4 @@ const UserWidget = () => {
   );
 };
 
-export default UserWidget;
+export default UserAccount;

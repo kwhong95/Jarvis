@@ -17,7 +17,7 @@ import SettingsModal from "./settings/SettingsModal";
 
 /* Header */
 import Header from "./header";
-import DashboardHeader from "./header/dashboard";
+import WidgetHeader from "./header/widget";
 
 /* Auth UI */
 import LogoutIcon from "./auth/LogoutIcon";
@@ -44,6 +44,9 @@ import TaskCard from "./tasks/Card";
 /* Teams UI */
 import TeamCard from "./teams/TeamCard";
 
+/* User UI */
+import UserAccount from "./user";
+
 export {
   Modal,
   CurrentWeatherIcon,
@@ -53,7 +56,7 @@ export {
   Settings,
   SettingsModal,
   Header,
-  DashboardHeader,
+  WidgetHeader,
   Tabs,
   Dropdown,
   WeatherGraph,
@@ -73,4 +76,5 @@ export {
   TaskCard,
   ProgressBar,
   TeamCard,
+  UserAccount,
 };

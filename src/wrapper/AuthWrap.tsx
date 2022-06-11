@@ -1,12 +1,5 @@
 import styled from "@emotion/styled";
-import { useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { useQuery } from "react-query";
-import { request } from "graphql-request";
-
-import { GRAPHCMS_API } from "configs/api";
-import { getUserInfo } from "services";
-import { auth } from "configs";
 
 const Container = styled.div`
   width: 100%;
@@ -34,21 +27,6 @@ const Card = styled.div`
 
 const AuthWrap = (Component: React.FC, title: string) =>
   function Hoc() {
-    const user: any = auth.currentUser;
-    const { data } = useQuery(["GetUserInfo", user.email], async () => {
-      const result = await request(GRAPHCMS_API!, getUserInfo, {
-        email: user.email,
-      });
-
-      return result.member;
-    });
-
-    useEffect(() => {
-      user.updateProfile({
-        displayName: data.name,
-      });
-    });
-
     return (
       <Container>
         <Helmet>

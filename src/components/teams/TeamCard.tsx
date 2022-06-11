@@ -16,6 +16,7 @@ const Container = styled.div`
   img {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
+    width: 100%;
   }
 
   .content {

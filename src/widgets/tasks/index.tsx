@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 import TasksTable from "./Table";
 import TotalProcess from "./TotalProcess";
-import { DashboardHeader } from "components";
+import { WidgetHeader } from "components";
 
 const Container = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ const Container = styled.div`
 const Task = () => {
   return (
     <Container>
-      <DashboardHeader label="Task Summary" />
+      <WidgetHeader label="Task Summary" />
       <TotalProcess />
       <TasksTable />
     </Container>

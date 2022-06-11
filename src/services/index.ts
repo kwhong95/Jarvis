@@ -1,6 +1,6 @@
 import { getTasks } from "./tasks";
 import { getTeams } from "./teams";
 import { getUserInfo } from "./user";
-import { getDailyWork } from "./daily";
+import { getIssueList } from "./issue";
 
-export { getTasks, getTeams, getUserInfo, getDailyWork };
+export { getTasks, getTeams, getUserInfo, getIssueList };

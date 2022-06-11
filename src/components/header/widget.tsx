@@ -26,7 +26,7 @@ interface Props {
   to?: string;
 }
 
-const DashboardHeader: React.FC<Props> = ({ label, to = "#" }) => {
+const WidgetHeader: React.FC<Props> = ({ label, to = "#" }) => {
   return (
     <Container>
       <h2>{label}</h2>
@@ -37,4 +37,4 @@ const DashboardHeader: React.FC<Props> = ({ label, to = "#" }) => {
   );
 };
 
-export default DashboardHeader;
+export default WidgetHeader;

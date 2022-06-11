@@ -10,9 +10,10 @@ const Container = styled.div`
   padding: 0.3rem;
   box-shadow: ${({ theme }) => theme.boxShadow.normal};
   transition: 0.3s;
-  min-width: 80px;
+  width: fit-content;
+  min-width: 200px;
 
-  :after {
+  /* :after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -25,7 +26,7 @@ const Container = styled.div`
     border-left: 0;
     margin-left: -5px;
     margin-bottom: -10px;
-  }
+  } */
 `;
 
 interface Props {

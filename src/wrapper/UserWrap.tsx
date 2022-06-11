@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 import { Menu } from "components";
 import Header from "components/header";
 import { auth, logging } from "configs";
+import useScreenCapture from "./ScreenCaptureWrap";
 
 const Container = styled.div<{ wideMenu: boolean }>`
   width: 100%;
@@ -27,6 +28,7 @@ const UserWrap = (Component: React.FC, title: string) =>
   function Hoc() {
     const [wideMenu, setWideMenu] = useState<boolean>(false);
 
+    const { screenRef, downloadScreenShot, ariaElement } = useScreenCapture();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -36,14 +38,16 @@ const UserWrap = (Component: React.FC, title: string) =>
       }
     }, [navigate]);
 
+    console.log(screenRef.current?.getClientRects());
+
     return (
       <Container wideMenu={wideMenu}>
         <Helmet>
           <title>{title}</title>
         </Helmet>
         <Menu wideMenu={wideMenu} setWideMenu={setWideMenu} />
-        <Inner>
-          <Header />
+        <Inner ref={screenRef}>
+          <Header capture={downloadScreenShot} />
           <Component />
         </Inner>
       </Container>

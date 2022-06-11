@@ -1,4 +1,6 @@
 import Dashboard from "./Dashboard";
+import Calendar from "./Calendar";
+
 import Search from "./Search";
 import Register from "./auth/Register";
 import Login from "./auth/Login";
@@ -8,6 +10,7 @@ import ResetPassword from "./auth/ResetPassword";
 
 export {
   Dashboard,
+  Calendar,
   Search,
   Register,
   Login,

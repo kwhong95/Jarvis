@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import { SearchInput } from "components";
-import { ClockWidget, UserWidget, WeatherWidget } from "widgets";
+import { UserAccount } from "components";
+import useScreenCapture from "wrapper/ScreenCaptureWrap";
+import HeaderIcon from "./HeaderIcon";
 
 const Container = styled.header`
   height: 60px;
@@ -14,14 +16,19 @@ const Container = styled.header`
   }
 `;
 
-const Header = () => {
+interface Props {
+  capture: any;
+}
+
+const Header: React.FC<Props> = ({ capture }) => {
   return (
     <Container>
       <SearchInput />
       <div className="widgets">
-        <WeatherWidget />
-        <ClockWidget />
-        <UserWidget />
+        {/* <WeatherWidget /> */}
+        {/* <ClockWidget /> */}
+        <HeaderIcon type="Capture" onClick={capture} />
+        <UserAccount />
       </div>
     </Container>
   );

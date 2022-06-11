@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { useQuery } from "react-query";
 import { request } from "graphql-request";
 
-import { DashboardHeader, TeamCard } from "components";
+import { WidgetHeader, TeamCard } from "components";
 import { GRAPHCMS_API } from "configs/api";
 import { getTeams } from "services";
 import { Team } from "interfaces";
@@ -32,7 +32,7 @@ const TeamsWidget = () => {
 
   return (
     <Container>
-      <DashboardHeader label="Teams" />
+      <WidgetHeader label="Teams" />
       <div className="team-cards">
         {data?.map((team, idx) => (
           <TeamCard

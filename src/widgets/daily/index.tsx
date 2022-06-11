@@ -1,14 +1,21 @@
 import styled from "@emotion/styled";
-import { DashboardHeader } from "components";
-import DailyWorkList from "./DailyWorkList";
+import { WidgetHeader } from "components";
 
-const Container = styled.div``;
+const Container = styled.div`
+  height: 100%;
+  article {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
 
 const DailyWorkWidget = () => {
   return (
     <Container>
-      <DashboardHeader label="Daily Work" />
-      <DailyWorkList />
+      <WidgetHeader label="Today's Schedule" />
+      <article>등록된 일정이 없습니다.</article>
     </Container>
   );
 };
